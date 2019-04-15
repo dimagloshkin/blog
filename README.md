@@ -1,2 +1,2 @@
 # blog
-culinary blog
+test blog
