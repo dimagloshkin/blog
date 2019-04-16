@@ -28,7 +28,6 @@
                     <ul>
                         <li><a href="#">Главная</a></li>
                         <li><a href="#">Обо мне</a></li>
-                        <li><a href="#">Я Вконтакте</a></li>
                     </ul>
                 </nav>
             </div>
@@ -38,13 +37,13 @@
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="#">Безопасность</a></li>
-                        <li><a href="#">Программирование</a></li>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Музыка</a></li>
-                        <li><a href="#">Саморазвитие</a></li>
-                        <li><a href="#">Гайды</a></li>
-                        <li><a href="#">Обзоры</a></li>
+                        <?php
+                        foreach($name_cat as $category_name):
+                           ?>
+                        <li><a href="#"><?= $category_name;?></a></li>
+                        <?php
+                        endforeach;
+                        ?>
                     </ul>
                 </nav>
             </div>
