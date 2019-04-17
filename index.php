@@ -8,7 +8,7 @@ define('ROOT',$_SERVER['DOCUMENT_ROOT']);
 require_once(ROOT . '/components/Route.php');
 //-----------------Подключение БД-----------------------------//
 require_once (ROOT . '/components/connect_db.php');
-ConnectionDB::getConnection();
+
 //------------------------------------------------------------//
 
 $callRoute = new Route();

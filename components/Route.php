@@ -39,9 +39,9 @@ class Route
                $parametrs = $elemConroller;
 //-----Вызываем метод $nameAction из $objectController, если есть параметры то передаем массивом $parameters---//
                $result = call_user_func_array(array($objectController,$nameAction),$parametrs);
-               if ($result != false){
+               if ($result != null){
                   break;
-               }
+               }break;
             }
          }
       }

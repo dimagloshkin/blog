@@ -10,71 +10,41 @@
     <h3>Топ читаемых статей</h3>
     <div class="block__content">
         <div class="articles articles__vertical">
+           <?php
+           foreach ($topArt as $art):
+              ?>
+               <article class="article">
+                   <div class="article__image"
+                        style="background-image: url(<?php echo $art['image'] . $art['id'] . '.jpg'; ?>);"></div>
+                   <div class="article__info">
+                       <a href="#"><?= $art['tittle']; ?></a>
+                       <div class="article__info__meta">
 
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Название статьи</a>
-                    <div class="article__info__meta">
-                        <small>Категория: <a href="#">Программирование</a></small>
-                    </div>
-                    <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna ...
-                    </div>
-                </div>
-            </article>
+                          <?php
+                          foreach ($name_cat as $cat) {
+                             if ($cat['id'] == $art['cat_id']) {
+                                ?>
+                                 <small>Категория:
+                                     <a href="/recipes/<?= $cat['controller']; ?>">
+                                       <?php echo $cat['name_cat']; ?>
+                                     </a>
+                                 </small>
+                                <?php
+                                break;
+                             }
+                          }
+                          ?>
 
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Название статьи</a>
-                    <div class="article__info__meta">
-                        <small>Категория: <a href="#">Программирование</a></small>
-                    </div>
-                    <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna ...
-                    </div>
-                </div>
-            </article>
+                       </div>
+                       <div class="article__info__preview">
+                          <?php echo substr($art['content'], 0, 160) . ' ... '; ?>
+                       </div>
+                   </div>
+               </article>
+           <?php
+           endforeach;
 
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Название статьи</a>
-                    <div class="article__info__meta">
-                        <small>Категория: <a href="#">Программирование</a></small>
-                    </div>
-                    <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna ...
-                    </div>
-                </div>
-            </article>
-
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Название статьи</a>
-                    <div class="article__info__meta">
-                        <small>Категория: <a href="#">Программирование</a></small>
-                    </div>
-                    <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna ...
-                    </div>
-                </div>
-            </article>
-
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Название статьи</a>
-                    <div class="article__info__meta">
-                        <small>Категория: <a href="#">Программирование</a></small>
-                    </div>
-                    <div class="article__info__preview">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna ...
-                    </div>
-                </div>
-            </article>
+           ?>
 
         </div>
     </div>

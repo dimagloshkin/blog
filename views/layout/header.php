@@ -1,8 +1,17 @@
+<?php
+require_once ROOT . '/models/WorkFromLayout.php';
+//-----------Работа с header--------------------//
+$name_cat = WorkWithLayout::getAllCategories();
+$titleBlog = WorkWithLayout::getNameBlog();
+//------------Работа с sidebar------------------//
+$topArt = WorkWithLayout::getFiveTopViewArt();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Блог IT_Минималиста!</title>
+    <title><?php echo $titleBlog['tittle'];?></title>
 
     <!-- Bootstrap Grid -->
     <link rel="stylesheet" type="text/css" href="/template/media/assets/bootstrap-grid-only/css/grid12.css">
@@ -22,11 +31,11 @@
         <div class="header__top">
             <div class="container">
                 <div class="header__top__logo">
-                    <h1>Блог IT_Минималиста</h1>
+                    <h1><?php echo $titleBlog['tittle'];?></h1>
                 </div>
                 <nav class="header__top__menu">
                     <ul>
-                        <li><a href="#">Главная</a></li>
+                        <li><a href="/">Главная</a></li>
                         <li><a href="#">Обо мне</a></li>
                     </ul>
                 </nav>
@@ -37,13 +46,15 @@
             <div class="container">
                 <nav>
                     <ul>
+                        <li><a href="/recipes/">Все рецепты</a></li>
                         <?php
                         foreach($name_cat as $category_name):
                            ?>
-                        <li><a href="#"><?= $category_name;?></a></li>
+                        <li><a href="/recipes/<?= $category_name['controller'];?>"><?= $category_name['name_cat'];?></a></li>
                         <?php
                         endforeach;
                         ?>
+
                     </ul>
                 </nav>
             </div>
