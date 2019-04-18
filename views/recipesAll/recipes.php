@@ -14,14 +14,14 @@
                                 <div class="article__image"
                                      style="background-image: url(<?php echo $recipe['image'] . $recipe['id'] . '.jpg'; ?>)"></div>
                                 <div class="article__info">
-                                    <a href="#"><?= $recipe['tittle'];?></a>
+                                    <a href="recipes/one/<?= $recipe['id'];?>"><?= $recipe['tittle'];?></a>
                                     <div class="article__info__meta">
                                        <?php
                                        foreach ($name_cat as $cat) {
                                           if ($cat['id'] == $recipe['cat_id']) {
                                              ?>
                                               <small>Категория:
-                                                  <a href="/recipes/<?= $cat['controller']; ?>">
+                                                  <a href="/recipes/<?= $cat['id']; ?>">
                                                      <?php echo $cat['name_cat'];
                                                      ?>
                                                   </a>

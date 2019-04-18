@@ -11,7 +11,7 @@ $topNewArt = WorkWithLayout::getFourTopNewArt();
                foreach ($name_cat as $category_name):
                   ?>
                    <div class="block">
-                       <a href="/recipes/">Все записи</a>
+                       <a href="/recipes">Все записи</a>
                        <h3>Новейшее <?= $category_name['name_cat']; ?></h3>
                        <div class="block__content">
                            <div class="articles articles__horizontal">
@@ -25,9 +25,9 @@ $topNewArt = WorkWithLayout::getFourTopNewArt();
                                             <div class="article__image"
                                                  style="background-image: url(<?php echo $art['image'] . $art['id'] . '.jpg'; ?>);"></div>
                                             <div class="article__info">
-                                                <a href="#"><?= $art['tittle']; ?></a>
+                                                <a href="recipes/one/<?= $art['id'];?>"><?= $art['tittle']; ?></a>
                                                 <div class="article__info__meta">
-                                                    <small>Категория: <a href="/recipes/<?= $category_name['controller'];?>">
+                                                    <small>Категория: <a href="/recipes/<?= $category_name['id'];?>">
                                                           <?php
                                                           foreach ($name_cat as $cat) {
                                                              if ($cat['id'] == $art['cat_id']) {

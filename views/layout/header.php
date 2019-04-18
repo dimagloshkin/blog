@@ -46,11 +46,11 @@ $topArt = WorkWithLayout::getFiveTopViewArt();
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="/recipes/">Все рецепты</a></li>
+                        <li><a href="/recipes">Все рецепты</a></li>
                         <?php
                         foreach($name_cat as $category_name):
                            ?>
-                        <li><a href="/recipes/<?= $category_name['controller'];?>"><?= $category_name['name_cat'];?></a></li>
+                        <li><a href="/recipes/<?= $category_name['id'];?>"><?= $category_name['name_cat'];?></a></li>
                         <?php
                         endforeach;
                         ?>

@@ -1,3 +1,4 @@
+
 <div class="block">
     <h3>Ваше местоположение</h3>
     <div class="block__content">
@@ -15,9 +16,10 @@
               ?>
                <article class="article">
                    <div class="article__image"
-                        style="background-image: url(<?php echo $art['image'] . $art['id'] . '.jpg'; ?>);"></div>
+                        style="background-image: url(<?php echo $art['image'] . $art['id'] . '.jpg'; ?>);">
+                   </div>
                    <div class="article__info">
-                       <a href="#"><?= $art['tittle']; ?></a>
+                       <a href="/recipes/one/<?= $art['id'];?>"><?= $art['tittle']; ?></a>
                        <div class="article__info__meta">
 
                           <?php
@@ -25,7 +27,8 @@
                              if ($cat['id'] == $art['cat_id']) {
                                 ?>
                                  <small>Категория:
-                                     <a href="/recipes/<?= $cat['controller']; ?>">
+                                     <a href="/recipes/<?= $cat['id']; ?>">
+
                                        <?php echo $cat['name_cat']; ?>
                                      </a>
                                  </small>
@@ -68,57 +71,8 @@
                 </div>
             </article>
 
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Jonny Flame</a>
-                    <div class="article__info__meta">
-                        <small><a href="#">Название статьи #1</a></small>
-                    </div>
-                    <div class="article__info__preview">Бла бла бла бла бла бла бла, и думаю еще что бла бла бла бла бла
-                        бла бла ...
-                    </div>
-                </div>
-            </article>
 
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Jonny Flame</a>
-                    <div class="article__info__meta">
-                        <small><a href="#">Название статьи #1</a></small>
-                    </div>
-                    <div class="article__info__preview">Бла бла бла бла бла бла бла, и думаю еще что бла бла бла бла бла
-                        бла бла ...
-                    </div>
-                </div>
-            </article>
 
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Jonny Flame</a>
-                    <div class="article__info__meta">
-                        <small><a href="#">Название статьи #1</a></small>
-                    </div>
-                    <div class="article__info__preview">Бла бла бла бла бла бла бла, и думаю еще что бла бла бла бла бла
-                        бла бла ...
-                    </div>
-                </div>
-            </article>
-
-            <article class="article">
-                <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
-                <div class="article__info">
-                    <a href="#">Jonny Flame</a>
-                    <div class="article__info__meta">
-                        <small><a href="#">Название статьи #1</a></small>
-                    </div>
-                    <div class="article__info__preview">Бла бла бла бла бла бла бла, и думаю еще что бла бла бла бла бла
-                        бла бла ...
-                    </div>
-                </div>
-            </article>
 
         </div>
     </div>
