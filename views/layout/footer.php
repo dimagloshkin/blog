@@ -58,19 +58,33 @@
 
     <div class="block">
         <h3>Последнии комментарии</h3>
+        <?php
+        foreach($topComments as $comment):
+        ?>
         <div class="block__content">
             <div class="articles articles__vertical">
 
                 <article class="article">
-                    <div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
+                    <div class="article__image" style="background-image: url(/template/media/images/user.jpg);"></div>
                     <div class="article__info">
-                        <a href="#">Jonny Flame</a>
+                        <?= $comment['author'];?>
                         <div class="article__info__meta">
-                            <small><a href="#">Название статьи #1</a></small>
+                            <small>
+                               <?php
+                               foreach($allrecipes as $recipe):
+                                  if($recipe['id'] == $comment['art_id']):
+                               ?>
+                                <a href="/recipes/one/<?= $recipe['id']; ?>">
+                                        <?= $recipe['tittle'];?>
+                                </a>
+                                <?php
+                                endif;
+                                endforeach;
+                               ?>
+                            </small>
                         </div>
-                        <div class="article__info__preview">Бла бла бла бла бла бла бла, и думаю еще что бла бла бла бла
-                            бла
-                            бла бла ...
+                        <div class="article__info__preview">
+                            <?= $comment['comment'];?>
                         </div>
                     </div>
                 </article>
@@ -78,6 +92,9 @@
 
             </div>
         </div>
+        <?php
+            endforeach;
+        ?>
     </div>
    <?php if (preg_match('~^/recipes/one/[0-9]+$~', $_SERVER['REQUEST_URI'])): ?>
 </section>

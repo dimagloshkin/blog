@@ -1,10 +1,15 @@
 <?php
 require_once ROOT . '/models/WorkFromLayout.php';
+require_once ROOT . '/models/Comment.php';
+require_once ROOT . '/models/Recipes.php';
 //-----------Работа с header--------------------//
 $name_cat = WorkWithLayout::getAllCategories();
 $titleBlog = WorkWithLayout::getNameBlog();
 //------------Работа с sidebar------------------//
 $topArt = WorkWithLayout::getFiveTopViewArt();
+$topComments = Comment::getFiveTopComments();
+$allrecipes = Recipes::getAllRecipes();
+
 
 ?>
 <!DOCTYPE html>

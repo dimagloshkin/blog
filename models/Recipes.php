@@ -9,7 +9,7 @@ class Recipes
       $stmt = $db->query($sql);
       $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $recipes;
-   }
+   }//возвращает массив с всеми рецептами
 
    public static function getRecipesByIdCat($id_cat)
    {
@@ -19,7 +19,7 @@ class Recipes
       $result->bindParam(":id", $id_cat, PDO::PARAM_INT);
       $result->execute();
       return $result->fetchAll(PDO::FETCH_ASSOC);
-   }
+   }//возвращает рецепты одной категории
 
    public static function getOneRecipes($id_art)
    {
@@ -30,5 +30,14 @@ class Recipes
       $result->execute();
       return $result->fetch(PDO::FETCH_ASSOC);
 
-   }
+   }//возвращает рецепт по его id
+
+   public static function setViewsArtic($id_art)
+   {
+      $db = ConnectionDB::getConnection();
+      $sql = "UPDATE `articles`  SET `views` = `views` + 1 WHERE `id` = :id ";
+      $result = $db->prepare($sql);
+      $result->bindParam(':id',$id_art, PDO::PARAM_INT);
+      $result->execute();
+   }//добавляет просмотр к статье
 }
