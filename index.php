@@ -1,4 +1,5 @@
 <?php
+session_start();
 //--------------------Front Controller------------------------//
 ini_set('display_errors','on');
 error_reporting(E_ALL);

@@ -42,6 +42,7 @@ $allrecipes = Recipes::getAllRecipes();
                     <ul>
                         <li><a href="/">Главная</a></li>
                         <li><a href="#">Обо мне</a></li>
+                        <li><a href="/admin/registration">Админпанель</a></li>
                     </ul>
                 </nav>
             </div>
