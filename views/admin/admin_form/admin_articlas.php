@@ -1,6 +1,4 @@
-
-
-   <section>
+<section>
       <div class="container">
          <div class="row">
 
@@ -13,7 +11,7 @@
                </ol>
             </div>
 
-            <a href="#" class="btn btn-default back"> Добавить статью</a>
+            <a href="/admin/addedarticles" class="btn btn-default back"> Добавить статью</a>
 
             <h4>Список статей</h4>
 
@@ -40,7 +38,7 @@
                      <td><?= $recip['image'];?></td>
                      <td><?=$recip['views'] ;?></td>
                      <td><?=$recip['cat_id'] ;?></td>
-                     <td><a href="#" title="Редактировать">Редактировать</a></td>
+                     <td><a href="/admin/edit/<?= $recip['id'];?>" title="Редактировать">Редактировать</a></td>
                      <td><a href="/admin/articles/<?= $recip['id'];?>" title="Удалить">Удалить</a></td>
                   </tr>
                 <?php

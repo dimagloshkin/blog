@@ -103,7 +103,7 @@ class AdminController
       if (isset($_SESSION['admin'])) {
          $db = ConnectionDB::getConnection();
          $rec = Recipes::getOneRecipes($id_art);
-         if(file_exists(ROOT . $rec['image'] . $id_art . '.jpg')){
+         if (file_exists(ROOT . $rec['image'] . $id_art . '.jpg')) {
             unlink(ROOT . $rec['image'] . $id_art . '.jpg');
          }
          $sql = "DELETE  FROM `articles` WHERE `id` = $id_art";
@@ -139,7 +139,7 @@ class AdminController
       if (isset($_SESSION['admin'])) {
          include ROOT . '/models/WorkFromLayout.php';
          $cat = WorkWithLayout::getAllCategoriesById($cat_id);
-         if(isset($_POST['name_cat'])){
+         if (isset($_POST['name_cat'])) {
             $name_cat = $_POST['name_cat'];
             WorkWithLayout::updateCat($name_cat, $cat_id);
             header("Location: /admin/category");
@@ -149,4 +149,53 @@ class AdminController
          header("Location: /admin/registration");
       }
    }//изменение категории
+
+   public function actionAddart()
+   {
+      include ROOT . '/models/Recipes.php';
+      include ROOT . '/models/WorkFromLayout.php';
+      if (isset($_SESSION['admin'])) {
+         if (isset($_POST['submit'])) {
+            $tittle = $_POST['tittle'];
+            $content = $_POST['content'];
+            $author = $_POST['author'];
+            $category_id = $_POST['category_id'];
+            $id = Recipes::addArticless($tittle, $content, $author, $category_id);
+            if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+               // Если загружалось, переместим его в нужную папке, дадим новое имя
+               move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . "/template/media/images/{$id}.jpg");
+            }
+            header("Location: /admin/articles");
+         }
+         $allCat = WorkWithLayout::getAllCategories();
+         include ROOT . '/views/admin/admin_form/admin_articles/add.php';
+      } else {
+         header("Location: /admin/registration");
+      }
+   }//добавить статью
+
+   public function actionEditart($art_id)
+   {
+      include ROOT . '/models/Recipes.php';
+      include ROOT . '/models/WorkFromLayout.php';
+      if (isset($_SESSION['admin'])) {
+         if(isset($_POST['submit'])){
+            $tittle = $_POST['tittle'];
+            $content = $_POST['content'];
+            $author = $_POST['author'];
+            $category_id = $_POST['category_id'];
+            $id = Recipes::addArticless($tittle, $content, $author, $category_id);
+            if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+               // Если загружалось, переместим его в нужную папке, дадим новое имя
+               move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . "/template/media/images/{$id}.jpg");
+            }
+            header("Location: /admin/articles");
+         }
+         $allCat = WorkWithLayout::getAllCategories();
+         $rec = Recipes::getOneRecipes($art_id);
+         include ROOT . '/views/admin/admin_form/admin_articles/update.php';
+      } else {
+         header("Location: /admin/registration");
+      }
+   }
 }
