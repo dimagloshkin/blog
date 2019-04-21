@@ -12,6 +12,7 @@ return array(
     'admin/category/([0-9]+)' => 'admin/catdelete/$1',//
     'admin/addcat' => 'admin/addcat',
     'admin/category' => 'admin/category',//
+    'admin/update/([0-9]+)' => 'admin/update/$1',
     'admin' => 'admin/admin',
     'exit' => 'admin/destroy',
 

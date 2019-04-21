@@ -31,7 +31,7 @@
                   <tr>
                      <td><?= $category['id'];?></td>
                      <td><?= $category['name_cat'];?></td>
-                     <td><a href="#" title="Редактировать">Рудактировать</a></td>
+                     <td><a href="/admin/update/<?= $category['id'];?>" title="Редактировать">Рудактировать</a></td>
                      <td><a href="/admin/category/<?= $category['id'];?>" title="Удалить">Удалить</a></td>
                   </tr>
                <?php

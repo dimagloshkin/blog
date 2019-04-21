@@ -1,4 +1,5 @@
 <?php
+
 class WorkWithLayout
 {
    public static function getAllCategories()
@@ -8,7 +9,7 @@ class WorkWithLayout
       $stmt = $db->query($sql);
       $name_cat = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $name_cat;
-   }//возвращает массив с названием категорий,id, контроллером
+   }//возвращает массив с названием категорий,id
 
    public static function getAllCategoriesById($id_cat)
    {
@@ -54,5 +55,13 @@ class WorkWithLayout
       $db = ConnectionDB::getConnection();
       $sql = "INSERT INTO `categories` SET `name_cat` = '$cat_name'";
       $db->query($sql);
-   }
+   }//добавить категорию
+
+   public static function updateCat($cat_name,$id_cat)
+   {
+      $db = ConnectionDB::getConnection();
+      $sql = "UPDATE `categories`  SET `name_cat` = '$cat_name' WHERE `id` = $id_cat";
+      $db->query($sql);
+
+   }//изменить категорию
 }

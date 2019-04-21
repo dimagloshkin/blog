@@ -102,8 +102,15 @@ class AdminController
       include ROOT . '/models/WorkFromLayout.php';
       if (isset($_SESSION['admin'])) {
          $db = ConnectionDB::getConnection();
+         $rec = Recipes::getOneRecipes($id_art);
+         if(file_exists(ROOT . $rec['image'] . $id_art . '.jpg')){
+            unlink(ROOT . $rec['image'] . $id_art . '.jpg');
+         }
          $sql = "DELETE  FROM `articles` WHERE `id` = $id_art";
          $db->query($sql);
+         $sql = "DELETE  FROM `comments` WHERE `art_id` = $id_art";
+         $db->query($sql);
+
          header("Location: /admin/articles");
       } else {
          header("Location: /admin/registration");
@@ -125,5 +132,21 @@ class AdminController
          header("Location: /admin/registration");
       }
 
-   }
+   }//добавление категории
+
+   public function actionUpdate($cat_id)
+   {
+      if (isset($_SESSION['admin'])) {
+         include ROOT . '/models/WorkFromLayout.php';
+         $cat = WorkWithLayout::getAllCategoriesById($cat_id);
+         if(isset($_POST['name_cat'])){
+            $name_cat = $_POST['name_cat'];
+            WorkWithLayout::updateCat($name_cat, $cat_id);
+            header("Location: /admin/category");
+         }
+         include ROOT . '/views/admin/admin_form/admin_category/update.php';
+      } else {
+         header("Location: /admin/registration");
+      }
+   }//изменение категории
 }
