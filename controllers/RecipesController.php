@@ -25,10 +25,10 @@ class RecipesController
    function actionOneart($art_id)
    {
 //-----------------------Добавление комментариев---------------------//
-      if(isset($_POST['author']) and isset($_POST['content'])){
+      if (isset($_POST['author']) and isset($_POST['content'])) {
          $author = $_POST['author'];
          $content = $_POST['content'];
-         Comment::addCommentByIdArt($art_id,$author , $content);
+         Comment::addCommentByIdArt($art_id, $author, $content);
          header("Location: /recipes/one/" . $art_id);
       }
 //-----------------------Добавляет просмотры статьи---------------------//

@@ -179,7 +179,7 @@ class AdminController
       include ROOT . '/models/Recipes.php';
       include ROOT . '/models/WorkFromLayout.php';
       if (isset($_SESSION['admin'])) {
-         if(isset($_POST['submit'])){
+         if (isset($_POST['submit'])) {
             $tittle = $_POST['tittle'];
             $content = $_POST['content'];
             $author = $_POST['author'];
@@ -197,5 +197,5 @@ class AdminController
       } else {
          header("Location: /admin/registration");
       }
-   }
+   }//редакция статьей
 }

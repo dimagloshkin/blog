@@ -7,8 +7,8 @@ return array(
     'admin/registration' => 'admin/registration',
     'admin/articles/([0-9]+)' => 'admin/artdelete/$1',
     'admin/addedarticles' => 'admin/addart',
-    'admin/addart' => 'admin/addart', //
-    'admin/edit/([0-9]+)' => 'admin/editart/$1',//
+    'admin/addart' => 'admin/addart',
+    'admin/edit/([0-9]+)' => 'admin/editart/$1',
     'admin/articles' => 'admin/articles',
 
     'admin/category/([0-9]+)' => 'admin/catdelete/$1',
@@ -18,6 +18,6 @@ return array(
     'admin' => 'admin/admin',
     'exit' => 'admin/destroy',
 
-    '' => 'main/index', //MainController actionIndex
+    '' => 'main/index',
 
 );

@@ -1,12 +1,10 @@
 <?php
 $topNewArt = WorkWithLayout::getFourTopNewArt();
-
 ?>
 <div id="content">
     <div class="container">
         <div class="row">
             <section class="content__left col-md-8">
-
                <?php
                foreach ($name_cat as $category_name):
                   ?>
@@ -25,9 +23,9 @@ $topNewArt = WorkWithLayout::getFourTopNewArt();
                                             <div class="article__image"
                                                  style="background-image: url(<?php echo $art['image'] . $art['id'] . '.jpg'; ?>);"></div>
                                             <div class="article__info">
-                                                <a href="recipes/one/<?= $art['id'];?>"><?= $art['tittle']; ?></a>
+                                                <a href="recipes/one/<?= $art['id']; ?>"><?= $art['tittle']; ?></a>
                                                 <div class="article__info__meta">
-                                                    <small>Категория: <a href="/recipes/<?= $category_name['id'];?>">
+                                                    <small>Категория: <a href="/recipes/<?= $category_name['id']; ?>">
                                                           <?php
                                                           foreach ($name_cat as $cat) {
                                                              if ($cat['id'] == $art['cat_id']) {
@@ -50,16 +48,12 @@ $topNewArt = WorkWithLayout::getFourTopNewArt();
                                  }
                               }
                               ?>
-
                            </div>
                        </div>
                    </div>
-
                <?php
                endforeach;
                ?>
-
-
             </section>
             <section class="content__right col-md-4">
 

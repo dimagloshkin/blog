@@ -3,7 +3,6 @@
         <div class="row">
             <section class="content__left col-md-8">
                 <div class="block">
-
                     <h3>Все рецепты</h3>
                     <div class="block__content">
                         <div class="articles articles__horizontal">
@@ -23,11 +22,9 @@
                            <?php
                            endforeach;
                            ?>
-
                         </div>
                     </div>
                 </div>
-
             </section>
             <section class="content__right col-md-4">
 

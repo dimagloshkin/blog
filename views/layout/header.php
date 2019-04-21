@@ -9,14 +9,12 @@ $titleBlog = WorkWithLayout::getNameBlog();
 $topArt = WorkWithLayout::getFiveTopViewArt();
 $topComments = Comment::getFiveTopComments();
 $allrecipes = Recipes::getAllRecipes();
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $titleBlog['tittle'];?></title>
+    <title><?php echo $titleBlog['tittle']; ?></title>
 
     <!-- Bootstrap Grid -->
     <link rel="stylesheet" type="text/css" href="/template/media/assets/bootstrap-grid-only/css/grid12.css">
@@ -27,16 +25,13 @@ $allrecipes = Recipes::getAllRecipes();
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="/template/media/css/style.css">
 </head>
-
 <body>
-
 <div id="wrapper">
-
     <header id="header">
         <div class="header__top">
             <div class="container">
                 <div class="header__top__logo">
-                    <h1><?php echo $titleBlog['tittle'];?></h1>
+                    <h1><?php echo $titleBlog['tittle']; ?></h1>
                 </div>
                 <nav class="header__top__menu">
                     <ul>
@@ -47,20 +42,19 @@ $allrecipes = Recipes::getAllRecipes();
                 </nav>
             </div>
         </div>
-
         <div class="header__bottom">
             <div class="container">
                 <nav>
                     <ul>
                         <li><a href="/recipes">Все рецепты</a></li>
-                        <?php
-                        foreach($name_cat as $category_name):
-                           ?>
-                        <li><a href="/recipes/<?= $category_name['id'];?>"><?= $category_name['name_cat'];?></a></li>
-                        <?php
-                        endforeach;
-                        ?>
-
+                       <?php
+                       foreach ($name_cat as $category_name):
+                          ?>
+                           <li><a href="/recipes/<?= $category_name['id']; ?>"><?= $category_name['name_cat']; ?></a>
+                           </li>
+                       <?php
+                       endforeach;
+                       ?>
                     </ul>
                 </nav>
             </div>

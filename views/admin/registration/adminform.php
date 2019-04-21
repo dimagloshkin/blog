@@ -28,7 +28,6 @@
     <!--===============================================================================================-->
 </head>
 <body>
-
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
@@ -39,7 +38,7 @@
 					</span>
                 <span class="login100-form-title p-b-51">
 <?php
-if (!empty($error)){
+if (!empty($error)) {
    echo $error[0];
 }
 ?>
@@ -48,28 +47,20 @@ if (!empty($error)){
                     <input class="input100" type="text" name="admin_name" placeholder="Логин">
                     <span class="focus-input100"></span>
                 </div>
-
-
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
                     <input class="input100" type="password" name="admin_pass" placeholder="Пароль">
                     <span class="focus-input100"></span>
                 </div>
-
                 <div class="container-login100-form-btn m-t-17">
                     <button class="login100-form-btn">
                         Авторизация
                     </button>
                 </div>
-
             </form>
-
         </div>
     </div>
 </div>
-
-
 <div id="dropDownSelect1"></div>
-
 <!--===============================================================================================-->
 <script src="/template/adminreg/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

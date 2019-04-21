@@ -24,7 +24,6 @@
                        <div class="article__info">
                            <a href="/recipes/one/<?= $art['id']; ?>"><?= $art['tittle']; ?></a>
                            <div class="article__info__meta">
-
                               <?php
                               foreach ($name_cat as $cat) {
                                  if ($cat['id'] == $art['cat_id']) {
@@ -40,7 +39,6 @@
                                  }
                               }
                               ?>
-
                            </div>
                            <div class="article__info__preview">
                               <?php echo substr($art['content'], 0, 160) . ' ... '; ?>
@@ -49,58 +47,52 @@
                    </article>
                <?php
                endforeach;
-
                ?>
-
             </div>
         </div>
     </div>
-
     <div class="block">
         <h3>Последнии комментарии</h3>
-        <?php
-        foreach($topComments as $comment):
-        ?>
-        <div class="block__content">
-            <div class="articles articles__vertical">
-
-                <article class="article">
-                    <div class="article__image" style="background-image: url(/template/media/images/user.jpg);"></div>
-                    <div class="article__info">
-                        <?= $comment['author'];?>
-                        <div class="article__info__meta">
-                            <small>
-                               <?php
-                               foreach($allrecipes as $recipe):
-                                  if($recipe['id'] == $comment['art_id']):
-                               ?>
-                                <a href="/recipes/one/<?= $recipe['id']; ?>">
-                                        <?= $recipe['tittle'];?>
-                                </a>
-                                <?php
-                                endif;
-                                endforeach;
-                               ?>
-                            </small>
-                        </div>
-                        <div class="article__info__preview">
-                            <?= $comment['comment'];?>
-                        </div>
-                    </div>
-                </article>
-
-
-            </div>
-        </div>
-        <?php
-            endforeach;
-        ?>
+       <?php
+       foreach ($topComments as $comment):
+          ?>
+           <div class="block__content">
+               <div class="articles articles__vertical">
+                   <article class="article">
+                       <div class="article__image"
+                            style="background-image: url(/template/media/images/user.jpg);"></div>
+                       <div class="article__info">
+                          <?= $comment['author']; ?>
+                           <div class="article__info__meta">
+                               <small>
+                                  <?php
+                                  foreach ($allrecipes as $recipe):
+                                     if ($recipe['id'] == $comment['art_id']):
+                                        ?>
+                                         <a href="/recipes/one/<?= $recipe['id']; ?>">
+                                            <?= $recipe['tittle']; ?>
+                                         </a>
+                                     <?php
+                                     endif;
+                                  endforeach;
+                                  ?>
+                               </small>
+                           </div>
+                           <div class="article__info__preview">
+                              <?= $comment['comment']; ?>
+                           </div>
+                       </div>
+                   </article>
+               </div>
+           </div>
+       <?php
+       endforeach;
+       ?>
     </div>
    <?php if (preg_match('~^/recipes/one/[0-9]+$~', $_SERVER['REQUEST_URI'])): ?>
 </section>
 <?php endif;
 ?>
-
 </div>
 </div>
 </div>
