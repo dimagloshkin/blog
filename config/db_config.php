@@ -1,8 +1,8 @@
 <?php
 return array(
-    'host' => '127.0.0.1',
+    'host' => 'localhost',
     'dbname' => 'blog',
-    'user' => 'root',
-    'pass' => '',
+    'user' => 'admin',
+    'pass' => '03Templar08',
     'typeDb' => 'mysql'
 );
